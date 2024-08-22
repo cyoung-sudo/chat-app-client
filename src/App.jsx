@@ -1,4 +1,6 @@
 import './App.scss'
+// React
+import { useState, useEffect } from "react";
 // Socket
 import io from "socket.io-client";
 // Components
@@ -8,18 +10,33 @@ import MessagesDisplay from "./components/displays/MessagesDisplay";
 // Initialize socket
 const socket = io("http://localhost:5050");
 
-let submitMessage = (e, message) => {
-  e.preventDefault();
-  socket.emit("message", message);
-}
-
 function App() {
+  const [messages, setMessages] = useState([]);
+
+  useEffect(() => {
+    // Listen for message updates
+    socket.on("update", data => {
+      setMessages(data);
+    });
+  }, [])
+
+  // Send new message
+  let submitMessage = (e, message) => {
+    e.preventDefault();
+    socket.emit("message", message);
+  }
+
   return (
     <div>
-      <MessagesDisplay/>
-      <MessageForm submitMessage={submitMessage}/>
+      <div id="messageDisplay-wrapper">
+        <MessagesDisplay messages={messages}/>
+      </div>
+
+      <div id="messafeForm-wrapper">
+        <MessageForm submitMessage={submitMessage}/>
+      </div>
     </div>
-  )
+  );
 }
 
 export default App;

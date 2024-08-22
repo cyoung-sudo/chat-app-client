@@ -1,20 +1,25 @@
 import "./MessagesDisplay.scss";
+// React
+import { useEffect, useRef } from "react";
 // Bootstrap
 import ListGroup from 'react-bootstrap/ListGroup';
 
-// Sample messages
-const messages = [
-  "ksdfsflmvsdkm",
-  "divfnsavnlkvmnsk",
-  "fklnvskdnvsndklvsnlkv",
-  "lksmnalkdnks"
-]
+const MessagesDisplay = ({ messages }) => {
+  const listRef = useRef(null);
 
-const MessagesDisplay = () => {
+  useEffect(() => {
+    // Scroll to bottom on new messages
+    listRef.current.scrollTop = listRef.current.scrollHeight;
+  }, [messages]);
+
   return (
-    <ListGroup>
+    <ListGroup id="messageDisplay" ref={listRef}>
       {messages.map((message, idx) => (
-        <ListGroup.Item key={idx}>{message}</ListGroup.Item>
+        <ListGroup.Item key={idx}>
+          <div>{message.user}</div>
+          <div>{message.text}</div>
+          <div>{message.createdAt}</div>
+        </ListGroup.Item>
       ))}
     </ListGroup>
   );
