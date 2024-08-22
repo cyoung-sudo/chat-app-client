@@ -1,4 +1,19 @@
 #messageDisplay {
   height: 100%;
   overflow: scroll;
+
+  span {
+    position: relative;
+    right: 3px;
+    bottom: 2px;
+  }
+}
+
+.messageDisplay-big {
+  font-size: 1.3rem;
+}
+
+.messageDisplay-small {
+  font-weight: 300;
+  font-style: italic;
 }

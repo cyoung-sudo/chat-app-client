@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 // Socket
 import io from "socket.io-client";
 // Components
+import NavigationBar from "./components/navigation/NavigationBar";
 import MessageForm from "./components/forms/MessageForm";
 import MessagesDisplay from "./components/displays/MessagesDisplay";
 
@@ -27,13 +28,17 @@ function App() {
   }
 
   return (
-    <div>
-      <div id="messageDisplay-wrapper">
-        <MessagesDisplay messages={messages}/>
-      </div>
+    <div id="app">
+      <NavigationBar/>
 
-      <div id="messafeForm-wrapper">
-        <MessageForm submitMessage={submitMessage}/>
+      <div id="app-content">
+        <div id="messageDisplay-wrapper">
+          <MessagesDisplay messages={messages}/>
+        </div>
+
+        <div id="messafeForm-wrapper">
+          <MessageForm submitMessage={submitMessage}/>
+        </div>
       </div>
     </div>
   );

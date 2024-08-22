@@ -1,3 +1,15 @@
+#app-content {
+  padding: 0 1rem 0 1rem;
+}
+
 #messageDisplay-wrapper {
-  height: 70vh;
+  height: 75vh;
+  margin-top: 1rem;
+}
+
+#messafeForm-wrapper {
+  height: 15vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

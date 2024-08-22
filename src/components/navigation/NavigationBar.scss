@@ -1,0 +1,14 @@
+#navigationBar {
+  height: var(--navigationBar-height);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--theme-color);
+  font-size: 1.5rem;
+
+  > span {
+    position: relative;
+    right: 3px;
+    bottom: 2px;
+  }
+}

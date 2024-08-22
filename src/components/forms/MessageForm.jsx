@@ -10,7 +10,9 @@ const MessageForm = ({ submitMessage }) => {
   const [message, setMessage] = useState("");
 
   return (
-    <Form onSubmit={e => submitMessage(e, message)}>
+    <Form 
+      id="messageForm"
+      onSubmit={e => submitMessage(e, message)}>
       <Form.Group>
         <Form.Control 
           onChange={e => setMessage(e.target.value)}
