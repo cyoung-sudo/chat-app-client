@@ -1,21 +1,17 @@
 import "./MessageForm.scss";
-// React
-import { useState } from "react";
 // Bootstrap
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 
-const MessageForm = ({ submitMessage }) => {
-  // Controlled inputs
-  const [message, setMessage] = useState("");
-
+const MessageForm = ({ message, setMessage, submitMessage }) => {
   return (
     <Form 
       id="messageForm"
-      onSubmit={e => submitMessage(e, message)}>
+      onSubmit={submitMessage}>
       <Form.Group>
         <Form.Control 
           onChange={e => setMessage(e.target.value)}
+          value={message}
           type="text"
           placeholder="Message" />
       </Form.Group>

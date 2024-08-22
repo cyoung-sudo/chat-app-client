@@ -12,6 +12,9 @@ import MessagesDisplay from "./components/displays/MessagesDisplay";
 const socket = io("http://localhost:5050");
 
 function App() {
+  // Controlled inputs
+  const [message, setMessage] = useState("");
+  // Retrieved data
   const [messages, setMessages] = useState([]);
 
   useEffect(() => {
@@ -22,9 +25,11 @@ function App() {
   }, [])
 
   // Send new message
-  let submitMessage = (e, message) => {
+  let submitMessage = e => {
     e.preventDefault();
     socket.emit("message", message);
+    // Reset message
+    setMessage("");
   }
 
   return (
@@ -37,7 +42,10 @@ function App() {
         </div>
 
         <div id="messafeForm-wrapper">
-          <MessageForm submitMessage={submitMessage}/>
+          <MessageForm
+            message={message}
+            setMessage={setMessage}
+            submitMessage={submitMessage}/>
         </div>
       </div>
     </div>
