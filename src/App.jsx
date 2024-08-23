@@ -8,8 +8,8 @@ import NavigationBar from "./components/navigation/NavigationBar";
 import MessageForm from "./components/forms/MessageForm";
 import MessagesDisplay from "./components/displays/MessagesDisplay";
 
-// Initialize socket
-const socket = io("http://localhost:5050");
+// Initialize socket connection
+const socket = io("https://chat-app-server-ob9b.onrender.com");
 
 function App() {
   // Controlled inputs
