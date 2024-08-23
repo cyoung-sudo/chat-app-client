@@ -1,8 +1,28 @@
-# React + Vite
+<h1 align="center">Chat App (client)</h1>
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+<p align="center">An app that allows users to message each other on a single global chat. This repository is the client code.</p>
 
-Currently, two official plugins are available:
+## Links
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- [Website]()
+
+- [Server Repo](https://github.com/cyoung-sudo/chat-app-server)
+
+## Screenshots
+
+![](/public/screenshot1.png)
+
+## Available Commands
+
+In the project directory, you can run:
+
+### `npm run dev" : "vite"`,
+
+Runs the app in the browser on [http://127.0.0.1:5173](http://127.0.0.1:5173).
+
+## Built With
+
+- HTML
+- SCSS
+- Javascript
+- React
