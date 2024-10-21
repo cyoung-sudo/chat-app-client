@@ -16,10 +16,13 @@ function App() {
   const [message, setMessage] = useState("");
   // Retrieved data
   const [messages, setMessages] = useState([]);
+  // Loading status
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     // Listen for message updates
     socket.on("update", data => {
+      setLoading(false);
       setMessages(data);
     });
   }, [])
@@ -37,16 +40,24 @@ function App() {
       <NavigationBar/>
 
       <div id="app-content">
-        <div id="messageDisplay-wrapper">
-          <MessagesDisplay messages={messages}/>
-        </div>
+        {!loading &&
+          <div id="messageDisplay-wrapper">
+            <MessagesDisplay messages={messages}/>
+          </div>
+        }
 
-        <div id="messafeForm-wrapper">
-          <MessageForm
-            message={message}
-            setMessage={setMessage}
-            submitMessage={submitMessage}/>
-        </div>
+        {!loading &&
+          <div id="messafeForm-wrapper">
+            <MessageForm
+              message={message}
+              setMessage={setMessage}
+              submitMessage={submitMessage}/>
+          </div>
+        }
+
+        {loading && 
+          <div id="app-content-loading">Loading...</div>
+        }
       </div>
     </div>
   );
