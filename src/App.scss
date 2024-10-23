@@ -17,10 +17,15 @@
 
 #app-content-loading {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 100%;
-  font-size: 2rem;
+}
+
+#app-content-loading > p {
+  margin: 0;
+  font-size: 1rem;
   font-weight: 300;
   font-style: italic;
 }

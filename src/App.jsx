@@ -56,7 +56,11 @@ function App() {
         }
 
         {loading && 
-          <div id="app-content-loading">Loading...</div>
+          <div id="app-content-loading">
+            <h1>Loading...</h1>
+            <p>Waking up server</p>
+            <p>Could take a minute :)</p>
+          </div>
         }
       </div>
     </div>
